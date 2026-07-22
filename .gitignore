@@ -1,14 +1,14 @@
 # Angular specific
-modder-header/dist/
-modder-header/out-tsc/
-modder-header/tmp/
-modder-header/coverage/
-modder-header/e2e/test-output/
-modder-header/.angular/
+modder/dist/
+modder/out-tsc/
+modder/tmp/
+modder/coverage/
+modder/e2e/test-output/
+modder/.angular/
 
 # Node modules and dependency files
-modder-header/node_modules/
-modder-header/yarn.lock
+modder/node_modules/
+modder/yarn.lock
 
 # Environment files
 /.env

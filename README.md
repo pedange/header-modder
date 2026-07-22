@@ -29,7 +29,7 @@ Header Modder is a powerful Chrome extension designed to modify HTTP request hea
 1. Clone the repository:
    ```bash
    git clone https://github.com/pedange/header-modder.git
-   cd modder-header/modder-header
+   cd header-modder/modder
    ```
 
 2. Install dependencies:
