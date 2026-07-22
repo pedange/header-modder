@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="header-actions">
+    <h2>Header Modder</h2>
+    <div class="main-actions">
+      <!--ADD GROUP-->
+      <button
+        matButton="tonal"
+        id="showAddGroupBtn"
+        (click)="openAddGroup()"
+      >
+        <i class="fa-fw fa-solid fa-layer-group"></i> Add Group
+      </button>
+
+      <!--MORE BUTTONS MENU-->
+      <button
+        matIconButton
+        [matMenuTriggerFor]="menu"
+        title="Settings"
+      >
+        <i class="fa-fw fa-solid fa-gear"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <!--IMPORT-->
+        <button
+          mat-menu-item
+          title="Import from JSON"
+          (click)="triggerImport()"
+        >
+          Import data
+        </button>
+        <!--EXPORT-->
+        <button
+          mat-menu-item
+          title="Export to JSON"
+          (click)="export()"
+        >
+          Export data
+        </button>
+      </mat-menu>
+
+    </div>
+    <input #importInput type="file" accept=".json" hidden (change)="onImportFile($event)">
+  </div>
+
+  <div id="groupsList">
+    @if (showAddGroup()) {
+      <app-add-group (closed)="showAddGroup.set(false)"/>
+      <hr style="width: 100%;">
+    }
+
+    @if (importSelectionOpen()) {
+      <app-import-selection [pendingImport]="pendingImport()" (closed)="closeImport()"/>
+      <hr style="width: 100%;">
+    }
+
+    @for (group of groups(); track group.id) {
+      <app-group-item [group]="group"/>
+    }
+  </div>
+
+  <footer class="footer">
+    <a href="https://github.com/pedange/header-modder.git" target="_blank" rel="noopener noreferrer">
+      <i class="fa-fw fa-solid fa-code-branch"></i> GitHub Repository
+    </a>
+  </footer>
+</div>

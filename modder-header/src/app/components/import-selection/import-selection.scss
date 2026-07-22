@@ -1,0 +1,65 @@
+.import-selection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: var(--section-bg);
+  border-radius: 4px;
+  margin-bottom: 5px;
+
+  h3 {
+    margin: 0 0 5px 0;
+  }
+}
+
+.import-groups-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--group-border);
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background: var(--bg-color);
+}
+
+.import-group-item {
+  padding: 5px;
+  border-bottom: 1px solid var(--rule-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  mat-checkbox {
+    width: 100%;
+
+    ::ng-deep .mdc-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+  }
+}
+
+.import-group-rule-count {
+  font-size: 0.8em;
+  color: var(--secondary-text);
+  margin-left: auto;
+}
+
+.import-options {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.error-message {
+  color: var(--error-color, #f44336);
+  font-size: 0.85em;
+  padding: 0 4px;
+}

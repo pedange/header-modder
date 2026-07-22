@@ -1,0 +1,69 @@
+:host {
+  display: block;
+}
+
+.group-item {
+  border: 1px solid var(--group-border);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: var(--group-header-bg);
+  gap: 8px;
+  cursor: pointer;
+}
+
+.accordion-toggle {
+  transition: transform 0.2s;
+  user-select: none;
+  display: inline-block;
+}
+
+.group-item.expanded .accordion-toggle {
+  transform: rotate(90deg);
+}
+
+.rules-container {
+  padding: 0 10px 5px 10px;
+}
+
+.group-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  gap: 0.25rem;
+}
+
+.group-title {
+  font-weight: normal;
+  font-size: 1.25em;
+}
+
+.group-pattern-display {
+  font-size: 1em;
+  color: var(--secondary-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.group-rule-count {
+  font-size: 1em;
+  color: var(--secondary-text);
+}
+
+.group-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.rules-list {
+  padding: 5px 0;
+}

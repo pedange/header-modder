@@ -1,0 +1,33 @@
+<div class="import-selection-section">
+  <h3>Select Groups to Import</h3>
+  <div class="import-groups-list">
+    @for (item of pendingImport(); track item.group.id) {
+      <div class="import-group-item">
+        <mat-checkbox [formField]="importForm.items[$index].selected">
+          <span class="import-group-name">{{ item.group.name }} ({{ item.group.urlPattern }})</span>
+          <span class="import-group-rule-count">
+            {{ item.group.rules.length }} rule{{ item.group.rules.length === 1 ? '' : 's' }}
+          </span>
+        </mat-checkbox>
+      </div>
+    }
+  </div>
+  <div class="import-options">
+    <mat-checkbox [formField]="importForm.replaceExisting">Replace existing groups</mat-checkbox>
+  </div>
+
+  @for (error of importForm.items().errors(); track $index) {
+    <div class="error-message">
+      {{ error.message }}
+    </div>
+  }
+
+  <div class="form-actions">
+    <button matButton="tonal" (click)="confirmImport()" [disabled]="!formValid()">
+      <i class="fa-fw fa-solid fa-file-import"></i> Import Selected
+    </button>
+    <button matButton (click)="cancelImport()">
+      <i class="fa-fw fa-solid fa-xmark"></i> Cancel
+    </button>
+  </div>
+</div>

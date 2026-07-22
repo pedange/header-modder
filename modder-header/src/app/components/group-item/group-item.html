@@ -1,0 +1,82 @@
+<div class="group-item" [class.expanded]="expanded()">
+  <div class="group-header" (click)="onHeaderClick($event)">
+    <span class="accordion-toggle">
+      <i class="fa-fw fa-solid fa-caret-right"></i>
+    </span>
+
+    <!--CHECKBOX-->
+    <mat-checkbox class="group-toggle" [checked]="group().enabled" (change)="onGroupToggle($event)"/>
+
+    <div class="group-info">
+      <span class="group-title">{{ group().name }}</span>
+      <span class="group-pattern-display">{{ group().urlPattern }}</span>
+      <span class="group-rule-count">
+        @if (group().enabled) {
+          {{ activeRuleCount() }}/{{ group().rules.length }} rules active
+        } @else {
+          Group disabled
+        }
+      </span>
+    </div>
+    <div class="group-actions">
+      <!--ADD RULE BUTTON-->
+      <button
+        matButton="tonal"
+        (click)="toggleAddRule()"
+      >
+        <i class="fa-fw fa-solid fa-plus"></i> Add Rule
+      </button>
+      <!--MORE MENU BUTTONS-->
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <i class="fa-fw fa-solid fa-ellipsis-vertical"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+
+        <!--EDIT-->
+        <button mat-menu-item
+                (click)="startEditGroup()"
+        >
+          <i class="fa-fw fa-solid fa-edit"></i> Edit Group
+        </button>
+
+        <!--DELETE-->
+        <button mat-menu-item
+                stopPropagationOnClick
+                (click)="onDeleteGroup()"
+        >
+          <i class="fa-fw fa-solid fa-trash"></i>
+          @if (confirmingDelete()) {
+            Confirm deletion?
+          } @else {
+            Delete Group
+          }
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <div class="rules-container" [hidden]="!expanded()">
+    @if (editingGroup()) {
+      <app-add-group [group]="group()" (closed)="editingGroup.set(false)"/>
+    }
+
+    @if (addingRule()) {
+      <app-add-rule [groupId]="group().id" (closed)="addingRule.set(false)"/>
+    }
+
+    <div class="rules-list">
+      @if (group().rules.length > 0) {
+        <div class="rules-header">
+          <span class="col-toggle"></span>
+          <span class="col-header">Header</span>
+          <span class="col-value">Value</span>
+          <span class="col-comment">Comment</span>
+          <span class="col-actions"></span>
+        </div>
+      }
+      @for (rule of group().rules; track rule.id) {
+        <app-rule-item [groupId]="group().id" [rule]="rule" [groupDisabled]="!group().enabled"/>
+      }
+    </div>
+  </div>
+</div>

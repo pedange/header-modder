@@ -1,0 +1,36 @@
+<div class="rule-item">
+
+  <!--CHECKBOX-->
+  <mat-checkbox [checked]="rule().enabled"
+                [disabled]="groupDisabled()"
+                (change)="onToggle($event)"/>
+
+  <div class="col-header rule-header-name">{{ rule().header }}</div>
+  <div class="col-value rule-value-text">{{ rule().value }}</div>
+  <div class="col-comment rule-comment-text" [matTooltip]="rule().comment">{{ rule().comment }}</div>
+  <div class="col-actions rule-actions">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <i class="fa-fw fa-solid fa-ellipsis-vertical"></i>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="startEdit()">
+        <i class="fa-fw fa-solid fa-edit" style="margin-right: 8px;"></i>
+        Edit Rule
+      </button>
+      <button mat-menu-item
+              stopPropagationOnClick
+              (click)="onDelete()">
+        <i class="fa-fw fa-solid fa-trash" style="margin-right: 8px;"></i>
+        @if (confirmingDelete()) {
+          Confirm deletion?
+        } @else {
+          Delete Rule
+        }
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+@if (editing()) {
+  <app-add-rule [groupId]="groupId()" [rule]="rule()" (closed)="cancelEdit()"/>
+}

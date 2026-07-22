@@ -1,0 +1,8 @@
+.add-group-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--section-bg);
+  border-radius: 4px;
+}

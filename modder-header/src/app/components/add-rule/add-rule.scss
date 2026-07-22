@@ -1,0 +1,18 @@
+.add-rule-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background: var(--section-bg);
+  border-radius: 4px;
+
+  .header-row {
+    display: flex;
+    gap: 0.5rem;
+
+    mat-form-field {
+      flex: 1;
+    }
+  }
+}

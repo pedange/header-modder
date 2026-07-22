@@ -1,0 +1,9 @@
+/* The host element plays the role of the original .rule-wrapper */
+:host {
+  display: block;
+  border-bottom: 1px solid var(--rule-border);
+}
+
+:host(:last-of-type) {
+  border-bottom: none;
+}

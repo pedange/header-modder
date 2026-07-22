@@ -1,0 +1,49 @@
+<form (submit)="save()"
+      class="add-rule-section">
+  <h3 style="margin: 0;">{{ rule() ? 'Edit Rule' : 'Add New Rule' }}</h3>
+
+  <div class="header-row">
+    @let header = ruleForm.header;
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label>Header Name</mat-label>
+      <input matInput
+             [formField]="header"
+             placeholder="Header Name"
+      >
+    </mat-form-field>
+
+    @let value = ruleForm.value;
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label>Value</mat-label>
+      <input matInput
+             [formField]="value"
+             placeholder="Value"
+      >
+    </mat-form-field>
+  </div>
+
+  @let comment = ruleForm.comment;
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label>Comment</mat-label>
+    <input matInput
+           [formField]="comment"
+           placeholder="Comment"
+    >
+  </mat-form-field>
+
+  <div class="form-actions">
+    <button matButton="outlined"
+            type="submit"
+            [class.severity-success]="rule()"
+    >
+      {{ rule() ? 'Save' : 'Add Rule' }}
+    </button>
+    <button matButton
+            [class.severity-error]="rule()"
+            (click)="cancel()"
+    >
+      Cancel
+    </button>
+  </div>
+
+</form>

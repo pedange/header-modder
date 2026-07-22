@@ -1,0 +1,18 @@
+/* Standalone build for the MV3 background service worker.
+ * Emits a single import-free background.js next to the Angular browser bundle. */
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "WebWorker"],
+    "types": ["chrome"],
+    "strict": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+    "outDir": "dist/modder-header/browser"
+  },
+  "files": ["src/background.ts"]
+}

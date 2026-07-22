@@ -1,0 +1,198 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  font-family: sans-serif;
+  width: max(500px, 100%);
+
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light dark;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Global styles for the Header Modder extension UI. */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --section-bg: #f0f0f0;
+  --input-border: #ccc;
+  --group-border: #ddd;
+  --group-header-bg: #e9ecef;
+  --rule-border: #eee;
+  --secondary-text: #666;
+  --severity-success: #28a745;
+  --severity-warning: #ffc107;
+  --severity-error: #dc3545;
+  --severity-info: #17a2b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202124;
+    --text-color: #e8eaed;
+    --section-bg: #2d2e31;
+    --input-border: #5f6368;
+    --group-border: #3c4043;
+    --group-header-bg: #35363a;
+    --rule-border: #3c4043;
+    --secondary-text: #9aa0a6;
+    --severity-success: #81c995;
+    --severity-warning: #fdd663;
+    --severity-error: #f28b82;
+    --severity-info: #8ab4f8;
+  }
+}
+
+h2,
+h3 {
+  margin-top: 0;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid var(--input-border);
+  border-radius: 3px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.form-actions {
+  display: flex;
+  gap: 5px;
+}
+
+/* Shared rules-table layout — kept global so the header row (group-item)
+   and the rule rows (rule-item) stay column-aligned across components. */
+.rules-header,
+.rule-item {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 1.5fr 80px;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 0;
+}
+
+.rules-header {
+  font-weight: bold;
+  font-size: 0.9em;
+  border-bottom: 2px solid var(--rule-border);
+  color: var(--secondary-text);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.col-header,
+.col-value,
+.col-comment {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rule-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.edit-rule {
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6c757d;
+}
+
+.edit-rule:hover {
+  background: #5a6268;
+}
+
+.delete-rule {
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc3545;
+  transition: background 0.2s,
+  color 0.2s,
+  width 0.2s;
+}
+
+.delete-rule:hover {
+  background: #a71d2a;
+}
+
+.delete-rule.confirming {
+  background: #ffc107;
+  color: #000;
+  width: auto;
+  padding: 4px 8px;
+}
+
+.delete-rule.confirming:hover {
+  background: #e0a800;
+}
+
+
+.rule-comment-text {
+  font-size: 0.9em;
+  color: var(--secondary-text);
+}
+
+button {
+  display: flex !important;
+}
+.mat-mdc-menu-item{
+  min-height: 32px!important;
+}
+.mat-mdc-menu-content {
+  padding: 4px 0!important;
+}
+* {
+  --mat-button-tonal-horizontal-padding: 16px;
+  --mat-button-filled-horizontal-padding: 16px;
+  --mat-button-outlined-horizontal-padding: 16px;
+  --mat-button-text-horizontal-padding: 16px;
+  --mat-button-tonal-container-height: 32px;
+  --mat-button-outlined-container-height: 32px;
+  --mat-button-filled-container-height: 32px;
+  --mat-button-text-container-height: 32px;
+  --mat-icon-button-state-layer-size: 32px;
+  --mat-icon-button-icon-size: 16px;
+}
