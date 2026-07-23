@@ -13,7 +13,7 @@
   gap: 0.25rem;
   cursor: pointer;
 
-  @media (min-width: 500px) {
+  @media (min-width: 400px) {
     gap: 0.5rem;
   }
 }
@@ -30,7 +30,7 @@
 }
 
 .rules-container {
-  padding: 0 10px 5px 10px;
+  padding: 0 5px;
 }
 
 .group-info {

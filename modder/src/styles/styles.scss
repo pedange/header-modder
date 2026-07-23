@@ -92,10 +92,14 @@ h3 {
 .rules-header,
 .rule-item {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr 1.5fr 80px;
+  grid-template-columns: 32px 1fr 1fr 1.5fr 32px;
   align-items: center;
-  gap: 8px;
-  padding: 0px 0;
+  gap: 0.25rem;
+  padding: 0;
+
+  @media (min-width: 400px) {
+    gap: 0.5rem;
+  }
 }
 
 .rules-header {
@@ -126,7 +130,7 @@ h3 {
   color: var(--secondary-text);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .hide-on-sm {
     display: none!important;
   }
