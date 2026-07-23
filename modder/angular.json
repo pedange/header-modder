@@ -31,7 +31,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
+              "src/styles/styles.scss",
               "src/assets/fontawesome/css/fontawesome.min.css",
               "src/assets/fontawesome/css/solid.min.css"
             ]

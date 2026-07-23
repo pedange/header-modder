@@ -1,8 +1,8 @@
 <div class="group-item" [class.expanded]="expanded()">
   <div class="group-header" (click)="onHeaderClick($event)">
-    <span class="accordion-toggle">
+    <div class="accordion-toggle">
       <i class="fa-fw fa-solid fa-caret-right"></i>
-    </span>
+    </div>
 
     <!--CHECKBOX-->
     <mat-checkbox class="group-toggle" [checked]="group().enabled" (change)="onGroupToggle($event)"/>
@@ -22,9 +22,10 @@
       <!--ADD RULE BUTTON-->
       <button
         matButton="tonal"
+        class="ellipsis-no-wrap"
         (click)="toggleAddRule()"
       >
-        <i class="fa-fw fa-solid fa-plus"></i> Add Rule
+        <i class="fa-fw fa-solid fa-plus hide-on-sm" style="padding-right: 0.25rem;"></i> New Rule
       </button>
       <!--MORE MENU BUTTONS-->
       <button mat-icon-button [matMenuTriggerFor]="menu">

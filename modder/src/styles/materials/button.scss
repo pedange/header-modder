@@ -1,0 +1,16 @@
+* {
+  --mat-button-tonal-horizontal-padding: 16px;
+  --mat-button-filled-horizontal-padding: 16px;
+  --mat-button-outlined-horizontal-padding: 16px;
+  --mat-button-text-horizontal-padding: 16px;
+  --mat-button-tonal-container-height: 32px;
+  --mat-button-outlined-container-height: 32px;
+  --mat-button-filled-container-height: 32px;
+  --mat-button-text-container-height: 32px;
+  --mat-icon-button-state-layer-size: 32px;
+  --mat-icon-button-icon-size: 16px;
+}
+
+button {
+  display: flex !important;
+}

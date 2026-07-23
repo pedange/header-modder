@@ -3,24 +3,26 @@
 }
 
 .group-item {
-  border: 1px solid var(--group-border);
-  border-radius: 4px;
-  margin-bottom: 10px;
 }
 
 .group-header {
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 0.2rem;
   background: var(--group-header-bg);
-  gap: 8px;
+  gap: 0.25rem;
   cursor: pointer;
+
+  @media (min-width: 500px) {
+    gap: 0.5rem;
+  }
 }
 
 .accordion-toggle {
+  display: flex;
+  align-items: center;
   transition: transform 0.2s;
   user-select: none;
-  display: inline-block;
 }
 
 .group-item.expanded .accordion-toggle {
@@ -39,22 +41,28 @@
   gap: 0.25rem;
 }
 
-.group-title {
-  font-weight: normal;
-  font-size: 1.25em;
-}
-
-.group-pattern-display {
-  font-size: 1em;
-  color: var(--secondary-text);
+.ellipsis-no-wrap {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.group-title {
+  font-weight: normal;
+  font-size: 1.25em;
+  @extend .ellipsis-no-wrap;
+}
+
+.group-pattern-display {
+  font-size: 1em;
+  color: var(--secondary-text);
+  @extend .ellipsis-no-wrap;
+}
+
 .group-rule-count {
   font-size: 1em;
   color: var(--secondary-text);
+  @extend .ellipsis-no-wrap;
 }
 
 .group-actions {
